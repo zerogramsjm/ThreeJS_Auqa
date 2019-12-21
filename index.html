@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>auqa</title>
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+        <script src="build/three.js"></script>
+        <script src="js/controls/TrackballControls.js"></script>
+        <script src="js/loaders/TDSLoader.js"></script>
+        <script src="js/loaders/TTFLoader.js"></script>
+        <script src="js/libs/opentype.min.js"></script>
+        <script src="js/objects/Water.js"></script>
+        <script src="js/objects/Sky.js"></script>
+        <script src="js/jquery.scrollify.js"></script>
+        <script src="src/jquery.visible.js"></script>
+
+<!--  -->
+
+      <script>
+        $(function() {
+          $.scrollify({
+            section : ".pages",
+          });
+        });
+      </script>
+
+<body>
+
+<div class="center_hover" id="center_hover" style="width: 400px; height: 900vh; position: absolute; left: 50%; top: 0; transform: translate(-50%, 0); background-color: transparent; z-index: 100;"></div>
+
+<div class="arrows"></div>
+
+            <div id="canvas_loading" style="z-index: 2">
+        </div>
+
+        <nav class="nav" id="nav">
+                <div class="container" id="container">
+                    <div class="logo" id="logo">
+                        <a id="click_logo" onclick="linkLogo()">auqa</a>
+                    </div>
+                    <div id="mainListDiv" class="main_list">
+                        <ul class="navlinks">
+                            <li><a id="click_l1">About</a></li>
+                            <li><a id="click_l2">App</a></li>
+                            <li><a id="click_l4">Subscribe</a></li>
+                            <li><a id="click_l3">Get Notified</a></li>
+                        </ul>
+                    </div>
+                    <span class="navTrigger">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </span>
+                </div>
+            </nav>
+
+            <div class="links_mobile" id="links_mobile">
+            <a href=""><div class="fb_img_mobile"></div></a>
+             <a href=""><div class="tw_img_mobile"></div></a>
+              <a href=""><div class="ig_img_mobile"></div></a>
+               <a href=""><div class="in_img_mobile"></div></a>
+                <a href=""><div class="gg_img_mobile"></div></a>
+            </div>
+
+            <div id="canvas_01" style="z-index: 2">
+        </div>
+
+    <div class="sidebars" id="sidebars">
+        <div class="sidebar_left" id="sidebar_left">
+            <div class="links" id="links">
+            <a href=""> <div class="link-fb-black"></div></a>
+             <a href=""> <div class="link-tw-black"></div></a>
+              <a href=""> <div class="link-ig-black"></div></a>
+               <a href=""> <div class="link-in-black"></div></a>
+                <a href=""> <div class="link-gg-black"></div></a>
+            </div>
+            </div>
+        </div>
+
+        <div class="sidebar_right" id="sidebar_right">
+            <div class="lines">
+                <div id="line1" class="line1"></div>
+                <div id="line2" class="line2"></div>
+                <div id="line3" class="line3"></div>
+                <div id="line4" class="line4"></div>
+                <div id="line5" class="line5"></div>
+                <div id="line6" class="line6"></div>
+                <div id="line7" class="line7"></div>
+            </div>
+        </div>
+    </div>
+
+        <div class="mouse-wheel center">
+            <p class="pulsate">scroll down</p>
+        </div>
+
+        <div class="mouse-wheel center_up">
+            <p>scroll up</p>
+        </div>
+
+        <div class="header_backdrop" id="header_backdrop">
+        </div>
+        <div class="UI_backdrop" id="UI_backdrop">
+        </div>
+        <div class="UI" id="UI">
+            <div class="header_info_img" id="header_info_img">
+            <img src="img/head.png">
+        </div>
+
+        <div class="header_info" id="header_info">
+            Water Delivery<br/>
+            Reimagined
+                <p>Get water delivered to your<br/>
+                doorstep just by using a simple app.
+                </p>
+            <img src="assets/AppStore.png" id="btn_apple">
+            <img src="assets/google.png" id="btn_google">
+        </div>
+    </div>
+
+        <div class="header_logo" id="header_logo">
+        <p>
+        auqa
+        </p>
+        </div>
+
+        <div class="pages" id="page_01">
+
+        </div>
+
+        </div>
+
+        <div class="info_01">
+
+        <div class="container_pulse" style="position: absolute;">
+            <button class="pulse-button" id="show-hidden-menu_01" style="  
+            box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.9);
+            background-color: #00B7F1;
+            ">+</button>
+        </div>
+
+        <div class="hidden-menu_01" style="display: none;">
+            <img src="assets/truck.png">
+        <h1>Water Delivered right to<br/>your doorstep</h1>
+        In just few clicks you can order<br/>your favourite water which will be<br/>delivered to your doorstep.
+        </div>
+
+        </div>
+
+        <div class="info_02">
+
+        <div class="container_pulse" style="position: absolute;">
+            <button class="pulse-button" id="show-hidden-menu_02" style="  
+            box-shadow: 0 0 0 0 rgba(255, 0, 255, 0.9);
+            background-color: #BD65FF;
+            ">+</button>
+        </div>
+
+        <div class="hidden-menu_02" style="display: none;">
+            <img src="assets/rotate.png">
+        <h1>Ability to set up<br/>Recurring orders</h1>
+        Subscribe made easy with the app<BR/>which give you the option to have<BR/>recurring order.
+        </div>
+
+        </div>
+
+        <div class="info_03">
+
+        <div class="container_pulse" style="position: absolute;">
+            <button class="pulse-button" id="show-hidden-menu_03" style="  
+            box-shadow: 0 0 0 0 rgba(235, 123, 196, 0.9);
+            background-color: #EB7BC4;
+            ">+</button>
+        </div>
+
+        <div class="hidden-menu_03" style="display: none;">
+            <img src="assets/heart.png">
+        <h1>Choosing from your<br/>favorite brand</h1>
+        Have the luxury of choosing from<br/>your favourite brands with the<br/>comfort of staying home.
+        </div>
+
+        </div>
+
+        <div class="info_04">
+
+        <div class="container_pulse" style="position: absolute;">
+            <button class="pulse-button" id="show-hidden-menu_04" style="  
+            box-shadow: 0 0 0 0 rgba(237, 116, 111, 0.9);
+            background-color: #ED746F;
+            ">+</button>
+        </div>
+
+        <div class="hidden-menu_04" style="display: none;">
+            <img src="assets/map.png">
+        <h1>Easy tracking of the<br/>delivery</h1>
+        Know where your delivery is as we<br/>made it an in app feature. You can<br/>easily track your delivery now.
+        </div>
+
+        </div>
+
+        <div class="centre_box_phone_01" style="pointer-events: none;">
+        </div>
+        <div class="centre_box_phone_02" style="pointer-events: none;">
+        </div>
+        <div class="centre_box_phone_03" style="pointer-events: none;">
+        </div>
+        <div class="centre_box_phone_04" style="pointer-events: none;">
+        </div>
+
+        <div class="section_01" style="">
+        </div>
+        <div class="content"></div>
+        <div class="page_01" id="page_01">
+        <div class="pages"></div>
+        </div>
+
+        <div class="section_02" style="">
+        </div>
+        <div class="content"></div>
+        <div class="page_02" id="page_02">
+        <div class="pages"></div>
+        </div>
+
+        <div class="section_03" style="">
+        </div>
+        <div class="page_03" id="page_03">
+        <div class="pages"></div>
+        </div>
+
+        <div class="section_04" style="">
+        </div>
+        <div class="page_04" id="page_04">
+        <!-- <div class="pages"></div> -->
+        </div>
+
+        <div class="section_05" style="">
+        </div>
+        <div class="page_05" id="page_05">
+        <div class="pages"></div>
+        </div>
+
+        <div class="section_06" style="">
+        </div>
+        <div class="page_06" id="page_06">
+        <!-- <div class="pages"></div> -->
+        </div>
+
+        <div class="section_07" style="">
+        </div>
+        <div class="page_07" id="page_07">
+        <div class="pages"></div>
+        </div>
+
+        <div class="section_08" style="">
+        </div>
+        <div class="page_08" id="page_08">
+        <!-- <div class="pages"></div> -->
+        </div>
+
+        <div class="section_09" style="">
+        </div>
+        <div class="page_09" id="page_09">
+        <div class="pages"></div>
+        </div>
+
+        <div class="section_10" style="">
+        </div>
+        <div class="page_10" id="page_10">
+        <!-- <div class="pages"></div> -->
+        </div>
+
+        <div class="luxury" id="luxury">
+            <h1>
+        The luxury of getting water delivered at the comfort of your home
+            </h1>
+        <img src="assets/subscribe.png"/>
+        </div>
+
+        <div class="section_11" id="section_11" style="">
+        </div>
+        <div class="page_11" id="page_11">
+            <img src="assets/footer_cut_slim_02.png">
+        <div class="pages"></div>
+        </div>
+
+        <div class="contact" id="contact">
+            <h1>Get Notified!</h1>
+            <p>Leave your email address to get notified.</p>
+                <div id="contact-area">
+                    <form method="post" style="cursor: none" action="mailto:jevonmahoney@live.com">
+                        <input placeholder="email" style="cursor: none" type="text" name="Email" id="Email" />
+                        <input type="Submit" name="Submit" value="Submit" class="submit-button" style="display: none; cursor: none" />
+                        <input type="image" class="sub" style="cursor: none; padding: 0; margin: 0; border: none; top: 150px;" src="assets/subscribe.png" alt="Submit Form" />
+                    </form>
+                </div>
+
+        </div>
+
+        <div class="footer" id="footer"><a href="./pp.html" style="top: 7px; font-size: 12px; left: 10px; float: right; position: absolute;">Privacy Policy</a>
+            <p>
+            Designed & Developed by: 
+            <a href="https://www.ineedsocial.co.uk/"> iNeedSocial</a> 
+            </p>
+        </div>
+
+        <div class="section_12" style="">
+        </div>
+        <div class="page_12" id="page_12">
+        <div class="pages"></div>
+        </div>
+
+        <div class="the_end"> 
+        <h1>the end</h1>
+        </div>
+
+        <div class="section_13" style="">
+
+        </div>
+        <div class="page_13" id="page_13">
+            <div class="pages"></div>
+
+            <div class="bottom_div" id="bottom_div"></div>
+        </div>
+
+        </div>
+
+        <!DOCTYPE html>
+        <html lang="en">
+            <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+
+    <body>
+
+        <script type="x-shader/x-vertex" id="vertexshader">
+            attribute float size;
+            attribute vec3 customColor;
+            varying vec3 vColor;
+            void main() {
+                vColor = customColor;
+                vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+                gl_PointSize = size * ( 300.0 / -mvPosition.z );
+                gl_Position = projectionMatrix * mvPosition;
+            }
+        </script>
+
+        <script type="x-shader/x-fragment" id="fragmentshader">
+            uniform vec3 color;
+            uniform sampler2D pointTexture;
+            varying vec3 vColor;
+            void main() {
+                gl_FragColor = vec4( color * vColor, 1.0 );
+                gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );
+                if ( gl_FragColor.a < ALPHATEST ) discard;
+            }
+        </script>
+
+        <script type="module">
+            import * as THREE from './build/three.module.js';
+            var renderer, scene, camera;
+            var particles;
+            var PARTICLE_SIZE = 20;
+            var raycaster, intersects;
+            var mouse, INTERSECTED;
+            init();
+            animate();
+            function init() {
+                var container = document.getElementById( 'bottom_div' );
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
+                camera.position.z = 250;
+                //
+                var vertices = new THREE.BoxGeometry( 200, 200, 200, 16, 16, 16 ).vertices;
+                var positions = new Float32Array( vertices.length * 3 );
+                var colors = new Float32Array( vertices.length * 3 );
+                var sizes = new Float32Array( vertices.length );
+                var vertex;
+                var color = new THREE.Color();
+                for ( var i = 0, l = vertices.length; i < l; i ++ ) {
+                    vertex = vertices[ i ];
+                    vertex.toArray( positions, i * 3 );
+                    color.setHSL( 0.01 + 0.1 * ( i / l ), 1.0, 0.5 );
+                    color.toArray( colors, i * 3 );
+                    sizes[ i ] = PARTICLE_SIZE * 0.5;
+                }
+                var geometry = new THREE.BufferGeometry();
+                geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
+                geometry.addAttribute( 'customColor', new THREE.BufferAttribute( colors, 3 ) );
+                geometry.addAttribute( 'size', new THREE.BufferAttribute( sizes, 1 ) );
+                //
+                var material = new THREE.ShaderMaterial( {
+                    uniforms: {
+                        color: { value: new THREE.Color( 0xffffff ) },
+                        pointTexture: { value: new THREE.TextureLoader().load( "assets/disc.png" ) }
+                    },
+                    vertexShader: document.getElementById( 'vertexshader' ).textContent,
+                    fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
+                    alphaTest: 0.9
+                } );
+                //
+                particles = new THREE.Points( geometry, material );
+                scene.add( particles );
+                //
+                renderer = new THREE.WebGLRenderer();
+                renderer.setPixelRatio( window.devicePixelRatio );
+                renderer.setSize( window.innerWidth, window.innerHeight );
+                container.appendChild( renderer.domElement );
+                //
+                raycaster = new THREE.Raycaster();
+                mouse = new THREE.Vector2();
+                //
+                //
+                window.addEventListener( 'resize', onWindowResize, false );
+                document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+            }
+            function onDocumentMouseMove( event ) {
+                event.preventDefault();
+                mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+                mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+            }
+            function onWindowResize() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize( window.innerWidth, window.innerHeight );
+            }
+            function animate() {
+                requestAnimationFrame( animate );
+                render();
+
+            }
+            function render() {
+                particles.rotation.x += 0.0005;
+                particles.rotation.y += 0.001;
+                var geometry = particles.geometry;
+                var attributes = geometry.attributes;
+                raycaster.setFromCamera( mouse, camera );
+                intersects = raycaster.intersectObject( particles );
+                if ( intersects.length > 0 ) {
+                    if ( INTERSECTED != intersects[ 0 ].index ) {
+                        attributes.size.array[ INTERSECTED ] = PARTICLE_SIZE;
+                        INTERSECTED = intersects[ 0 ].index;
+                        attributes.size.array[ INTERSECTED ] = PARTICLE_SIZE * 1.25;
+                        attributes.size.needsUpdate = true;
+                    }
+                } else if ( INTERSECTED !== null ) {
+                    attributes.size.array[ INTERSECTED ] = PARTICLE_SIZE;
+                    attributes.size.needsUpdate = true;
+                    INTERSECTED = null;
+                }
+                renderer.render( scene, camera );
+            }
+        </script>
+
+    </body>
+
+</html>
+
+        <script type="x-shader/x-vertex" id="vertexshader">
+            attribute float size;
+            attribute vec3 customColor;
+            varying vec3 vColor;
+            void main() {
+                vColor = customColor;
+                vec4 mvPosition = modelViewMatrix * vec4( position, .3 );
+                gl_PointSize = size * ( 300.0 / -mvPosition.z );
+                gl_Position = projectionMatrix * mvPosition;
+            }
+        </script>
+
+        <script type="x-shader/x-fragment" id="fragmentshader">
+            uniform vec3 color;
+            uniform sampler2D pointTexture;
+            varying vec3 vColor;
+            void main() {
+                gl_FragColor = vec4( color * vColor, 0.1 );
+                gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );
+                if ( gl_FragColor.a < ALPHATEST ) discard;
+            }
+        </script>
+
+<audio autoplay="autoplay">
+     <source src="assets/bg.mp3" />     
+ </audio>
+
+<script src="js/index.js"></script>
+<script src="canvas/loading_canvas.js"></script>
+
+<script src="canvas/canvas_01.js"></script>
+
+</body>
+</html>
